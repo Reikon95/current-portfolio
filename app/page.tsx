@@ -1,8 +1,10 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -15,28 +17,17 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="p-6 bg-primary">
+      <header className="p-6 bg-muted">
         <nav className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-primary-foreground">
-            Cameron Blackwood
-          </h1>
+          <h1 className="text-2xl font-bold text-white">Cameron Blackwood</h1>
           <div className="space-x-4">
-            <Link
-              href="#portfolio"
-              className="text-primary-foreground hover:text-secondary"
-            >
+            <Link href="#portfolio" className="text-white">
               Portfolio
             </Link>
-            <Link
-              href="#talks"
-              className="text-primary-foreground hover:text-secondary"
-            >
+            <Link href="#talks" className="text-white">
               Talks
             </Link>
-            <Link
-              href="#contact"
-              className="text-primary-foreground hover:text-secondary"
-            >
+            <Link href="#contact" className="text-white">
               Contact
             </Link>
           </div>
@@ -112,7 +103,8 @@ function PortfolioSection() {
   const projects = [
     {
       title: "StartupGradJobs",
-      description: "A job website",
+      description:
+        "A job board for graduate roles in startups. Built using NextJS.",
     },
     {
       title: "MicroInfluencer",
@@ -152,16 +144,16 @@ function PortfolioSection() {
     </section>
   );
 }
-// https://www.youtube.com/watch?v=RtvROuM54-w
 
-// https://www.youtube.com/watch?v=TAXWmYIvI0c - scrimba
 function TalksSection() {
   const talks = [
     {
       title: "Wasp - a SaaS in seconds",
       event: "EdinburghJS",
       date: "2024",
-      details: "How I launched a SaaS in record times using Wasp",
+      details:
+        "How I launched a successful SaaS in record time using Wasp. Featuring my terminal racing against a simulated F1 car!",
+      link: "https://www.youtube.com/watch?v=RtvROuM54-w",
     },
     {
       title: "The VANS stack",
@@ -169,6 +161,7 @@ function TalksSection() {
       date: "2024",
       details:
         "Livestream for the event is currently unavailable, but I have the talk in YouTube format. A discussion around using Supabase, Vercel, AWS and NextJS to create web apps.",
+      link: "",
     },
     {
       title: "Tech Job Disasters To Avoid",
@@ -176,13 +169,14 @@ function TalksSection() {
       date: "2022",
       details:
         "A livestream on advising new developers on getting their first job in tech.",
+      link: " https://www.youtube.com/watch?v=TAXWmYIvI0c",
     },
   ];
 
   return (
     <section id="talks" className="space-y-6">
       <h2 className="text-3xl font-bold text-center text-primary">My Talks</h2>
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {talks.map((talk, index) => (
           <Card
             key={index}
@@ -196,7 +190,12 @@ function TalksSection() {
                 {talk.event} - {talk.date}
               </CardDescription>
             </CardHeader>
-            <CardContent>{talk.details}</CardContent>
+            <CardContent>{talk.details} </CardContent>
+            <CardFooter>
+              <a href={talk.link} target="_blank">
+                <Button>View</Button>
+              </a>
+            </CardFooter>
           </Card>
         ))}
       </div>
@@ -214,7 +213,7 @@ function ContactSection() {
         <CardHeader>
           <CardTitle className="text-card-foreground">Contact Form</CardTitle>
           <CardDescription className="text-card-foreground/70">
-            Fill out the form below to send me a message.
+            Fill out the form below to send me a message!
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -229,7 +228,7 @@ function ContactSection() {
                 </label>
                 <Input
                   id="name"
-                  placeholder="Cameron Blackwood"
+                  placeholder="Finn Russell"
                   className="bg-input text-input-foreground"
                 />
               </div>
