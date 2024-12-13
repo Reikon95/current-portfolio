@@ -161,7 +161,7 @@ function TalksSection() {
       date: "2024",
       details:
         "Livestream for the event is currently unavailable, but I have the talk in YouTube format. A discussion around using Supabase, Vercel, AWS and NextJS to create web apps.",
-      link: "",
+      link: "https://youtu.be/t44Yr6bcO3I?si=g-dJ477Kkn2D7oWo",
     },
     {
       title: "Tech Job Disasters To Avoid",
@@ -191,7 +191,7 @@ function TalksSection() {
               </CardDescription>
             </CardHeader>
             <CardContent>{talk.details} </CardContent>
-            <CardFooter>
+            <CardFooter className="flex justify-center">
               <a href={talk.link} target="_blank">
                 <Button>View</Button>
               </a>
